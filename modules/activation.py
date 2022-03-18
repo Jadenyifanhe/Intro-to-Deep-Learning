@@ -2,17 +2,15 @@ import numpy as np
 
 
 class Identity:
-    
+
     def forward(self, Z):
-    
         self.A = Z
-        
+
         return self.A
-    
+
     def backward(self):
-    
         dAdZ = np.ones(self.A.shape, dtype="f")
-        
+
         return dAdZ
 
 
@@ -56,5 +54,5 @@ class ReLU:
         dAdZ = np.where(self.A > 0, 1.0, 0.0)
 
         return dAdZ
-        
-        
+
+

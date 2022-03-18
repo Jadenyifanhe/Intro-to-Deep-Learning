@@ -1,22 +1,21 @@
 import numpy as np
 
+
 class Linear:
-    
-    def __init__(self, in_features, out_features, debug = False):
-    
-        self.W    = np.zeros((out_features, in_features), dtype="f")
-        self.b    = np.zeros((out_features, 1), dtype="f")
+
+    def __init__(self, in_features, out_features, debug=False):
+        self.W = np.zeros((out_features, in_features), dtype="f")
+        self.b = np.zeros((out_features, 1), dtype="f")
         self.dLdW = np.zeros((out_features, in_features), dtype="f")
         self.dLdb = np.zeros((out_features, 1), dtype="f")
-        
+
         self.debug = debug
 
     def forward(self, A):
-    
-        self.A    = A
-        self.N    = A.shape[0]
-        self.Ones = np.ones((self.N,1), dtype="f")
-        self.Z         = self.A @ self.W.T + self.Ones @ self.b.T
+        self.A = A
+        self.N = A.shape[0]
+        self.Ones = np.ones((self.N, 1), dtype="f")
+        self.Z = self.A @ self.W.T + self.Ones @ self.b.T
 
         return self.Z
 
